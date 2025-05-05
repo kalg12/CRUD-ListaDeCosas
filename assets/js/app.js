@@ -2,8 +2,8 @@
 let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
 // 2.- Vincular el HTML con el JS (DOM)
-const inputTarea = document.getElementById("nueva-tarea");
-const btnAgregar = document.getElementById("btn-agregar");
+const inputTarea = document.getElementById("nueva-tarea"); // este es el input
+const btnAgregar = document.getElementById("btn-agregar"); // este es el botón azul
 const listaTareas = document.getElementById("lista-tareas");
 
 // 3.- Mostrar tolas las tareas en la pantalla
@@ -26,7 +26,7 @@ function mostrarTareas() {
 
 // 4.- Agregar una nueva tarea (Primero vamos a crear la función para recuperar el valor del input)
 function agregarTarea() {
-  const tarea = inputTarea.value.trim();
+  const tarea = inputTarea.value.trim(); // trim() elimina los espacios en blanco al inicio y al final
   if (tarea === "") {
     alert("Por favor, ingresa una tarea.");
     return;
