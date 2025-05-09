@@ -28,10 +28,20 @@ function mostrarTareas() {
 function agregarTarea() {
   const tarea = inputTarea.value.trim(); // trim() elimina los espacios en blanco al inicio y al final
   if (tarea === "") {
-    alert("Por favor, ingresa una tarea.");
+    Swal.fire({
+      title: "¡Error!",
+      text: "El campo no puede estar vacío",
+      icon: "error",
+    });
     return;
   }
   tareas.push(tarea);
+  //Mostramos un alert de éxito
+  Swal.fire({
+    title: "¡Éxito!",
+    text: "Tarea agregada correctamente",
+    icon: "success",
+  });
   localStorage.setItem("tareas", JSON.stringify(tareas));
   inputTarea.value = "";
   mostrarTareas();
@@ -51,7 +61,11 @@ function editarTarea(index) {
   btnAgregar.onclick = function () {
     const tareaActualizada = inputTarea.value.trim();
     if (tareaActualizada === "") {
-      alert("Por favor, ingresa una tarea.");
+      Swal.fire({
+        title: "¡Error!",
+        text: "El campo no puede estar vacío",
+        icon: "error",
+      });
       return;
     }
     tareas[index] = tareaActualizada;
